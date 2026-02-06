@@ -2,8 +2,11 @@
  * Copy DearFlip dflip folder from node_modules to public.
  * Run after npm install so /dearflip/ is available when the app loads.
  */
-const fs = require('fs')
-const path = require('path')
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const src = path.join(__dirname, '../node_modules/@dearhive/dearflip-jquery-flipbook/dflip')
 const dest = path.join(__dirname, '../public/dearflip')
