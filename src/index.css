@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Base styles for Phil-cad Academician Publishing ===== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply antialiased bg-white text-charcoal;
+    font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+  }
+  /* Semantic link styling */
+  a {
+    @apply text-charcoal;
+  }
+  a:hover {
+    @apply text-navy;
+  }
+}
+
+/* Animated hero background band */
+.landing-gradient-band {
+  background-image: linear-gradient(120deg, #fcfcfc 10%, #ffffff 35%, #e2e2e2 65%, #9f9f9f 100%);
+  background-size: 200% 200%;
+  animation: landing-band-shift 10s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes landing-band-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Flipbook: page content fits and doesn’t overflow */
+.flipbook-page {
+  background: #fff;
+  overflow: hidden;
+}
+.flipbook-page img {
+  display: block;
+  pointer-events: none;
+}
+
+/* Enhanced DearFlip-style flipbook */
+.flipbook-enhanced .flipbook-book {
+  border-radius: 4px;
+}
+.flipbook-enhanced .flipbook-page {
+  border-radius: 2px;
+}
+/* Pull right page closer to left – reduce spine gap */
+.flipbook-enhanced .stf__item[class*='right'] {
+  margin-left: -16px;
+}
+.flipbook-enhanced .react-transform-wrapper,
+.flipbook-enhanced .react-transform-component {
+  touch-action: none;
+}
+
+/* Download button – from Uiverse.io by andrew-demchenk0 */
+.download-button {
+  --main-focus: #2d8cf0;
+  --font-color: #323232;
+  --bg-color-sub: #dedede;
+  --bg-color: #eee;
+  --main-color: #323232;
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.download-button .download-button__text {
+  transform: translateX(22px);
+  color: var(--font-color);
+  font-weight: 600;
+}
+
+.download-button .download-button__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: var(--bg-color-sub);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-button .download-button__svg {
+  width: 20px;
+  fill: var(--main-color);
+}
+
+.download-button {
+  transition: transform 0.2s ease;
+}
+
+.download-button:hover {
+  transform: scale(1.05);
+}
+
+/* DearFlip viewer: dark background around the flipbook */
+.dearflip-viewer,
+.dearflip-viewer .df_outerwrapper,
+.dearflip-viewer .df_container {
+  background-color: #1a1a1a !important;
+  background: #1a1a1a !important;
+}
